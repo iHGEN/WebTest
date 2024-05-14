@@ -63,8 +63,8 @@
         document.body.appendChild(script);
     
         script.onload = function() {
-          loadingBar.style.display = "block";
           createUnityInstance(canvas, config, function(progress) {
+            loadingBar.style.display = "block";
             console.log("Loading progress: " + (100 * progress) + "%");
             progressBarFull.style.width = 100 * progress + "%";
           }).then(function(unityInstance) {
