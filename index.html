@@ -56,23 +56,34 @@
       };
     
       document.addEventListener("DOMContentLoaded", function() {
-        var script = document.createElement("script");
-        script.src = loaderUrl;
-        document.body.appendChild(script);
-    
-        script.onload = function() {
-          loadingBar.style.display = "block";
-          createUnityInstance(canvas, config, function(progress) {
-            console.log("Loading progress: " + (100 * progress) + "%");
-            progressBarFull.style.width = 100 * progress + "%";
-          }).then(function(unityInstance) {
-            loadingBar.style.display = "none";
-          }).catch(function(error) {
-            console.error("Unity Load Error: ", error);
-            alert("Failed to load Unity game: " + error);
-          });
-        };
-      });
+    var script = document.createElement("script");
+    script.src = loaderUrl;
+    document.body.appendChild(script);
+
+    script.onload = function() {
+      try {
+        loadingBar.style.display = "block";
+        createUnityInstance(canvas, config, function(progress) {
+          console.log("Loading progress: " + (100 * progress) + "%");
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then(function(unityInstance) {
+          loadingBar.style.display = "none";
+        }).catch(function(error) {
+          console.error("Unity Load Error: ", error);
+          alert("Failed to load Unity game: " + error);
+        });
+      } catch (error) {
+        console.error("Script load error: ", error);
+        alert("An error occurred: " + error.message);
+      }
+    };
+
+    script.onerror = function(error) {
+      console.error("Failed to load script: ", error);
+      alert("Failed to load the Unity loader script.");
+    };
+});
+
     </script>
   </body>
 </html>
