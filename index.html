@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | i20-Project</title>
-    <link rel="stylesheet" href="https://ihgen.github.io/WebTest/TemplateData/style.css?raw=true">
+    <link rel="shortcut icon" href="TemplateData/ksaa-logo.png">
+    <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=360 height=640 tabindex="-1"></canvas>
-      <img src="https://ihgen.github.io/WebTest/TemplateData/smartcenter.png?raw=true">
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -61,8 +61,8 @@
         document.body.appendChild(script);
     
         script.onload = function() {
+          loadingBar.style.display = "block";
           createUnityInstance(canvas, config, function(progress) {
-            loadingBar.style.display = "block";
             console.log("Loading progress: " + (100 * progress) + "%");
             progressBarFull.style.width = 100 * progress + "%";
           }).then(function(unityInstance) {
