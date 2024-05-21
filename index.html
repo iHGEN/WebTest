@@ -62,6 +62,17 @@
         productVersion: "0.1.0",
         showBanner: unityShowBanner,
       };
+      function resizeCanvas() {
+        var dpr = window.devicePixelRatio || 1;
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
+        if (unityInstance && unityInstance.Module) {
+          unityInstance.Module.canvas.width = canvas.width;
+          unityInstance.Module.canvas.height = canvas.height;
+        }
+      }
 
       // By default Unity keeps WebGL canvas render target size matched with
       // the DOM size of the canvas element (scaled by window.devicePixelRatio)
@@ -92,6 +103,8 @@
         canvas.style.height = "100vh";
       }
 
+      window.addEventListener('resize', resizeCanvas);
+      window.addEventListener('orientationchange', resizeCanvas);
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
