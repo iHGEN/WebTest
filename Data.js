@@ -1,9 +1,4 @@
- // Import the functions you need from the SDKs you nee
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-    
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+!function(t, e) {
       const firebaseConfig = {
         apiKey: "AIzaSyBD-_20jCqt4S8tNu3nn4hdTPZZATOIfqA",
         authDomain: "database-unity-test.firebaseapp.com",
@@ -15,3 +10,4 @@
         measurementId: "G-ED2KRQSLBY"
       };
       firebase.initializeApp(firebaseConfig);
+};
