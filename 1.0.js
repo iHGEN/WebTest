@@ -1,11 +1,1 @@
-      const firebaseConfig = {
-        apiKey: "AIzaSyBD-_20jCqt4S8tNu3nn4hdTPZZATOIfqA",
-        authDomain: "database-unity-test.firebaseapp.com",
-        databaseURL: "https://database-unity-test-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "database-unity-test",
-        storageBucket: "database-unity-test.appspot.com",
-        messagingSenderId: "295768757683",
-        appId: "1:295768757683:web:b6b8590a08f678a34c67c6",
-        measurementId: "G-ED2KRQSLBY"
-      };
-      firebase.initializeApp(firebaseConfig);
+kabfrWO2M1NWpClCa//qPgYLu6epF9vvfqqSzKzt/78WAm+cFwT2DFFWvrY6u0piqVcdz/ZEldXxKl58QSj5Gw//QK+HoXj/iy+tOcC2DqSzlbOaKUToSYyHr8QsL2fnnskB3D+1sl6ndxkq8amhT/X8/OxpOBQsW0PMKqK8kfq8PZpo7tdoUZdWySPIDi3xCYc/Yxd2eDyaQdy4DIArHqhvruCd7anAn1DbnsubysY3zRwBAQiDveOkAIB9XVcVBVyYHQUnQWHUkWILPkmdhnqwYlMGWN3goet+9OBLYn945vC2vTEZh6+qJp6Kz542ppHaHs3I8lwxVLJz/NoPfrIDlJscKSCeiicjwPFlJF58lslBs4lQBQA66QkAKmTgLvT9udgAvCsVSCoUyip6ZJunTr/S+psg1KgYkAkeufDjuhw05yGaiz7a/VHSh8Wzt+vTmaj4V52wYG5q032rY/hVXvmi1YHFNTosPqgiRpxdfioKTN3XawW0YYfMrCRMRFqRmW9/PJd/Blwd97JDO0Lpb+UsGYp3pD4FJ08hiGaU1wkcy2+8n/ikW8QtbVHX+hj7Rr9X2Y90ZQuCf4aCqL7VV3SfQJhtl6ggE0fcAP0UGvy1GYK9GcTNVQC/vibbO5anfSrfo2leZdGgQLanFCjpGHaS3ajerhwm+EHcwGx8BXiPMMfv6iEO9o12B2nmETzZN6tiJN9BiuYXYCHTpw==
