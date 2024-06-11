@@ -6,6 +6,29 @@
     <title>Unity WebGL Player | i20-Project</title>
     <link rel="shortcut icon" href="https://media.githubusercontent.com/media/iHGEN/WebTest/main/TemplateData/ksaa-logo.png">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <script>
+      function clearUnityCache() {
+          if (window.indexedDB && window.indexedDB.deleteDatabase) {
+              var databases = ["UNITY_WEBGL", "AssetBundleCache"];
+              databases.forEach(function(dbName) {
+                  var request = window.indexedDB.deleteDatabase(dbName);
+                  request.onsuccess = function() {
+                      console.log(dbName + " cache cleared successfully.");
+                  };
+                  request.onerror = function() {
+                      console.error("Failed to clear " + dbName + " cache.");
+                  };
+              });
+          } else {
+              console.warn("IndexedDB is not supported in this browser.");
+          }
+      }
+
+      // Call the function to clear the cache when the page loads
+      window.onload = function() {
+          clearUnityCache();
+      };
+  </script>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
