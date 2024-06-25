@@ -6,31 +6,42 @@
     <title>Unity WebGL Player | i20-Project</title>
     <link rel="shortcut icon" href="https://media.githubusercontent.com/media/iHGEN/WebTest/main/TemplateData/ksaa-logo.png">
     <link rel="stylesheet" href="TemplateData/style.css">
+  </head>
+  <body>
     <script>
       function clearUnityCache() {
-          if (window.indexedDB && window.indexedDB.deleteDatabase) {
-              var databases = ["UnityCache"];
-              databases.forEach(function(dbName) {
-                  var request = window.indexedDB.deleteDatabase(dbName);
-                  request.onsuccess = function() {
-                      console.log(dbName + " cache cleared successfully.");
-                  };
-                  request.onerror = function() {
-                      console.error("Failed to clear " + dbName + " cache.");
-                  };
-              });
-          } else {
-              console.warn("IndexedDB is not supported in this browser.");
-          }
-      }
+    if (window.indexedDB && window.caches) {
+        var cacheName = "UnityCache_DefaultCompany_i20-Project";
+        var dbName = "UnityCache";
 
+        // Clear Cache Storage
+        caches.delete(cacheName).then(function(success) {
+            if (success) {
+                console.log(cacheName + " cache cleared successfully.");
+            } else {
+                console.error("Failed to clear " + cacheName + " cache.");
+            }
+        }).catch(function(error) {
+            console.error("Error clearing " + cacheName + " cache:", error);
+        });
+
+        // Delete IndexedDB
+        var request = window.indexedDB.deleteDatabase(dbName);
+        request.onsuccess = function() {
+            console.log(dbName + " IndexedDB database cleared successfully.");
+        };
+        request.onerror = function() {
+            console.error("Failed to clear " + dbName + " IndexedDB database.");
+        };
+    } else {
+        console.warn("Cache Storage or IndexedDB is not supported in this browser.");
+    }
+}
       // Call the function to clear the cache when the page loads
       window.onload = function() {
           clearUnityCache();
       };
   </script>
-  </head>
-  <body>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas"></canvas>
       <div id="unity-loading-bar">
@@ -42,7 +53,7 @@
       <div id="unity-warning"> </div>
     </div>
     <script>
-
+//UnityCache_DefaultCompany_i20-Project
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
