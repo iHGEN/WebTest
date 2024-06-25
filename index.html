@@ -9,7 +9,7 @@
     <script>
       function clearUnityCache() {
           if (window.indexedDB && window.indexedDB.deleteDatabase) {
-              var databases = ["UNITY_WEBGL", "AssetBundleCache"];
+              var databases = ["UnityCache"];
               databases.forEach(function(dbName) {
                   var request = window.indexedDB.deleteDatabase(dbName);
                   request.onsuccess = function() {
