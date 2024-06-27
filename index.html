@@ -12,7 +12,6 @@
       function clearUnityCache() {
     if (window.indexedDB && window.caches) {
         var cacheName = "UnityCache_DefaultCompany_i20-Project";
-        var dbName = "UnityCache";
 
         // Clear Cache Storage
         caches.delete(cacheName).then(function(success) {
@@ -24,19 +23,8 @@
         }).catch(function(error) {
             console.error("Error clearing " + cacheName + " cache:", error);
         });
-
-        // Delete IndexedDB
-        var request = window.indexedDB.deleteDatabase(dbName);
-        request.onsuccess = function() {
-            console.log(dbName + " IndexedDB database cleared successfully.");
-        };
-        request.onerror = function() {
-            console.error("Failed to clear " + dbName + " IndexedDB database.");
-        };
-    } else {
-        console.warn("Cache Storage or IndexedDB is not supported in this browser.");
+      }
     }
-}
       // Call the function to clear the cache when the page loads
       window.onload = function() {
           clearUnityCache();
@@ -52,6 +40,7 @@
       </div>
       <div id="unity-warning"> </div>
     </div>
+
     <script>
 //UnityCache_DefaultCompany_i20-Project
       var container = document.querySelector("#unity-container");
@@ -89,7 +78,7 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/web test.loader.js";
       var config = {
-        dataUrl: "https://media.githubusercontent.com/media/iHGEN/WebTest/main/Build/web test.data",
+        dataUrl: buildUrl + "/web test.data",//"https://media.githubusercontent.com/media/iHGEN/WebTest/main/Build/web test.data",
         frameworkUrl: buildUrl + "/web test.framework.js",
         codeUrl: buildUrl + "/web test.wasm",
         streamingAssetsUrl: "StreamingAssets",
@@ -98,17 +87,7 @@
         productVersion: "0.1.0",
         showBanner: unityShowBanner,
       };
-      function resizeCanvas() {
-        var dpr = window.devicePixelRatio || 1;
-        canvas.width = window.innerWidth * dpr;
-        canvas.height = window.innerHeight * dpr;
-        canvas.style.width = window.innerWidth + 'px';
-        canvas.style.height = window.innerHeight + 'px';
-        if (unityInstance && unityInstance.Module) {
-          unityInstance.Module.canvas.width = canvas.width;
-          unityInstance.Module.canvas.height = canvas.height;
-        }
-      }
+
 
       // By default Unity keeps WebGL canvas render target size matched with
       // the DOM size of the canvas element (scaled by window.devicePixelRatio)
@@ -142,8 +121,6 @@
         canvas.style.height = "100vh";
       }
 
-      window.addEventListener('resize', resizeCanvas);
-      window.addEventListener('orientationchange', resizeCanvas);
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
