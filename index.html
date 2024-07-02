@@ -8,27 +8,7 @@
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
-    <script>
-      function clearUnityCache() {
-    if (window.indexedDB && window.caches) {
-        var cacheName = "UnityCache_DefaultCompany_i20-Project";
-
-        // Clear Cache Storage
-        caches.delete(cacheName).then(function(success) {
-            if (success) {
-                console.log(cacheName + " cache cleared successfully.");
-            } else {
-                console.error("Failed to clear " + cacheName + " cache.");
-            }
-        }).catch(function(error) {
-            console.error("Error clearing " + cacheName + " cache:", error);
-        });
-      }
-    }
-      // Call the function to clear the cache when the page loads
-      window.onload = function() {
-          clearUnityCache();
-      };
+    <script src="ChckForUpdate.js">
   </script>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas"></canvas>
